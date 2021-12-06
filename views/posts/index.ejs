@@ -9,13 +9,14 @@
     <title>Crime data</title>
 </head>
 <body>
-    <div class = "container ">
+    <div class = "bg-secondary">
+    <div class = "container ml-2 mt-3">
     <h1 class="text-danger">Crime history</h1>
     <a href = "/posts/newpost" class = "btn btn-dark">Add a new crime</a>
 
         <% posts.forEach(post => { %>
             <div class = "card mt-4 border border-dark bg-light">
-                <div class = "body m-2">
+                <div class = "body m-3">
                 <h5 class = "card-title"><%= post.place %></h5>
                 <div class = "card-subtitle text-muted mb-2">
                     <%= post.createdAt.toLocaleDateString() %>
@@ -24,13 +25,14 @@
                 <div class = "card-subtitle mb-2 mt-2 text-muted">
                     <%= post.city %>
                 </div>
-                <a href = "posts/<%= post.id %>" class = "btn btn-primary">Read more</a>
+                <a href = "posts/<%= post.id %>" class = "btn btn-dark">Read more</a>
                 <form method="POST" action="/posts/<%= post.id %>?_method=DELETE" class = "d-inline">
                 <button type="submit" class="btn btn-danger">Delete post</button>
                 </div>
                 </form>
             </div>
         <% }) %>
+    </div>
     </div>
 </body>
 </html>
