@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label for="place">Place</label>
+    <input required value ="<%= post.place %>" type="text" name = "place" id="place" placeholder="Business Name" class="form-control">
+</div>
+<div class="form-group">  
+    <label for="result">Result</label>
+    <textarea required name="result" id="result" rows="2" class = "form-control"><%= post.result %></textarea>
+</div>
+<div class="form-group">
+    <label for="city" class="form-label">City</label>
+    <textarea required type="text" name = "city" id="city" class="form-control"><%= post.city %></textarea>
+</div>
+
+<a href="/" class = "btn btn-secondary">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>

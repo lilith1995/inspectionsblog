@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Crime data</title>
+</head>
+<body>
+    <div class = "container ">
+    <h1 class="text-danger">Crime history</h1>
+    <a href = "/posts/newpost" class = "btn btn-dark">Add a new crime</a>
+
+        <% posts.forEach(post => { %>
+            <div class = "card mt-4 border border-dark bg-light">
+                <div class = "body m-2">
+                <h5 class = "card-title"><%= post.place %></h5>
+                <div class = "card-subtitle text-muted mb-2">
+                    <%= post.createdAt.toLocaleDateString() %>
+                </div>
+                <div class = "card-text"><%= post.result %></div>
+                <div class = "card-subtitle mb-2 mt-2 text-muted">
+                    <%= post.city %>
+                </div>
+                <a href = "posts/<%= post.id %>" class = "btn btn-primary">Read more</a>
+                <form method="POST" action="/posts/<%= post.id %>?_method=DELETE" class = "d-inline">
+                <button type="submit" class="btn btn-danger">Delete post</button>
+                </div>
+                </form>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
